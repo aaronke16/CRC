@@ -1,0 +1,41 @@
+.about-section {
+    text-align: center;
+}
+
+.achievements {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.resume {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.work-experience {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.projects {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.website-counter {
+    background-color: #ff4957;
+    height: 50px;
+    width: 80px;
+    color: white;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  .website-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
