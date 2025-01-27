@@ -23,3 +23,4 @@ jobs:
     - name: Deploy files to S3
       run: |
         aws s3 sync CRC s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --delete
+
