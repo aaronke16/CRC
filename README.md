@@ -1,6 +1,6 @@
 # 🏆 AWS Cloud Resume Challenge - [aaronke.com](https://aaronke.com)
 
-![Cloud Resume Challenge Architecture](assets/CRC_flowsheer.jpg)
+![Cloud Resume Challenge Architecture](images/CRC_flowsheer.jpg)
 
 ## 📌 Overview
 This project is my implementation of the **AWS Cloud Resume Challenge**, demonstrating a **full-stack serverless application** hosted on AWS. It showcases my ability to work with **cloud technologies, CI/CD automation, and infrastructure as code**.
