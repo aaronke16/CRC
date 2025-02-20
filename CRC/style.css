@@ -1,41 +1,59 @@
-.about-section {
-    text-align: center;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
-.achievements {
-    text-align: center;
-    list-style-position: inside;
+/* Section Styling */
+.about-section, .crc-techstack, .resume, .work-experience, .projects, .achievements {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.resume {
-    text-align: center;
-    list-style-position: inside;
+.resume-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #04AA6D;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
-.work-experience {
-    text-align: center;
-    list-style-position: inside;
+.resume-btn:hover {
+  background-color: #028a54;
 }
 
-.projects {
-    text-align: center;
-    list-style-position: inside;
+.project-card {
+  background: #eaeaea;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
 }
 
-.website-counter {
-    background-color: #ff4957;
-    height: 50px;
-    width: 80px;
-    color: white;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 25px;
-    margin-top: 10px;
-  }
+.project-card h3 {
+  margin-bottom: 5px;
+}
 
-  .website-counter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+.project-card ul {
+  list-style: inside square;
+}
+
+.work-experience ul {
+  list-style: inside disc;
+  padding: 0;
+  text-align: left;
+}
+
+.achievements ul {
+  list-style: inside disc;
+  padding: 0;
+  text-align: left;
+}
