@@ -6,7 +6,26 @@ body {
   line-height: 1.6;
 }
 
-/* Section Styling */
+/* page container */
+.container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  color: #111;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+header h1 { margin: 0 0 0.5rem 0; font-size: 1.75rem; }
+.hero { margin-bottom: 1.5rem; color: #444; }
+
+img.arch { max-width: 100%; height: auto; display: block; margin: 1rem 0; border-radius: 6px; }
+
+section { margin: 1rem 0; }
+pre, code { background:#f6f8fa; padding:0.25rem 0.5rem; border-radius:4px; }
+
+a { color: #0366d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 .about-section, .crc-techstack, .resume, .work-experience, .projects, .achievements {
   max-width: 900px;
   margin: 40px auto;

@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron Essien - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud Resume Challenge — CRC</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <header class="hero">
+      <h1>Welcome — AWS Cloud Resume Challenge (CRC)</h1>
+      <p>This is a simple, generic page for the Cloud Resume Challenge. Below is an overview of the project and how it works.</p>
+    </header>
 
-    <p>Views: <span class="counter-number"></span></p>
-
-    <section class="about-section">
-        <h1>Hi, I'm Aaron Essien</h1>
-        <p>
-            I am a senior at the University at Buffalo majoring in Computer Science. Below you can find some of my recent accomplishments.<br>
-            I wanted to take on this challenge after becoming intruiged by the cloud and all of its offerings this past summer.<br>
-            I'm excited to work on this and many other projects, so let's see how well I can scale this HTML & CSS and the cloud services that I'll be using!<br>
-            <b>
-                Below you'll find my Resume, it'll have the most up to date things about the projects I've worked on and the company's that I've worked for.
-            </b>
-        </p>
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This project is an implementation of the <strong>AWS Cloud Resume Challenge</strong>, demonstrating a
+        full-stack serverless application hosted on AWS. It shows the use of cloud technologies, CI/CD automation,
+        and infrastructure-as-code.
+      </p>
+      <p>Live site: <a href="https://aaronke.com" target="_blank" rel="noopener">aaronke.com</a></p>
     </section>
 
-    <section class="crc-techstack">
-        <p>Check out the diagram of how this website is running <a href="https://github.com/aaronke16/CRC" target="_blank">here on GitHub</a></p>
+    <section>
+      <h2>Technologies Used</h2>
+      <h3>Frontend (Static Website)</h3>
+      <ul>
+        <li>S3 — Hosts the static files (HTML, CSS, JavaScript).</li>
+        <li>CloudFront — CDN for performance and security.</li>
+        <li>Route 53 — Custom domain management.</li>
+        <li>AWS Certificate Manager (ACM) — SSL/TLS certificates for HTTPS.</li>
+      </ul>
+
+      <h3>Backend (Serverless)</h3>
+      <ul>
+        <li>Lambda — Serverless function that updates and retrieves visitor count from DynamoDB.</li>
+        <li>DynamoDB — NoSQL database to store and track website visits.</li>
+      </ul>
+
+      <h3>CI/CD & Infrastructure as Code</h3>
+      <ul>
+        <li>GitHub Actions — Automates deployment (upload to S3, CloudFront invalidation).</li>
+        <li>Terraform — Defines and provisions cloud infrastructure.</li>
+      </ul>
     </section>
 
-    <section class="resume">
-        <a href="Aaron_Essien_Resume_25.pdf" target="_blank" class="resume-btn">View My Official Resume</a>
+    <section>
+      <h2>How It Works</h2>
+      <h3>Frontend Flow</h3>
+      <ol>
+        <li>End user visits the site (e.g. <code>aaronke.com</code>).</li>
+        <li>Route 53 resolves DNS to a CloudFront distribution.</li>
+        <li>CloudFront serves cached static content from S3.</li>
+        <li>The site calls a Lambda function to update and display the visitor count.</li>
+      </ol>
+
+      <h3>Backend Flow (Without API Gateway)</h3>
+      <ol>
+        <li>The frontend invokes AWS Lambda directly using the AWS SDK.</li>
+        <li>The Lambda function reads the count from DynamoDB, increments it, updates DynamoDB, and returns the new count.</li>
+      </ol>
+
+      <h3>CI/CD Deployment</h3>
+      <p>On push to GitHub the Actions workflow uploads files to S3 and invalidates CloudFront so changes go live quickly. Terraform manages the infrastructure.</p>
     </section>
 
-    <section class="work-experience">
-        <h2>Work Experience</h2>
-        <h3>Software Development Engineer in Test Intern</h3>
-        <h4><i>Sagesure Insurance</i></h4>
-        <ul>
-            <li>Implemented comprehensive end-to-end testing strategies using Postman, Pytest, Playwright, and Selenium.</li>
-            <li>Integrated automated testing frameworks into CI/CD pipelines to ensure consistent code quality.</li>
-            <li>Managed SDLC processes using Jira for bug tracking and user story management.</li>
-            <li>Authored Playwright documentation to standardize automation across future company projects.</li>
-        </ul>
+    <section>
+      <h2>Disclaimer</h2>
+      <p>
+        The architecture diagram may show API Gateway, but this implementation does not use API Gateway.
+        Instead the frontend calls Lambda directly using the AWS SDK and the Lambda function has an IAM role
+        permitting read/write access to DynamoDB. This was chosen for cost efficiency and simplicity.
+      </p>
     </section>
 
-    <section class="projects">
-        <h2>Projects</h2>
-
-        <div class="project-card">
-            <h3>NotesReader</h3>
-            <p><b>Tech Stack:</b> Python, Flask, React, MongoDB, Docker</p>
-            <a href="https://github.com/imtooMilly/CSE368-AI-Tutor/tree/master">Check it out here!</a>
-            <ul>
-                <li>Built an AI-powered tool to convert lecture slides into interactive study materials.</li>
-                <li>Used Pytesseract for text extraction and Google Gemini for summarization and quiz generation.</li>
-                <li>Designed adaptive quizzes that adjust to user progress dynamically.</li>
-            </ul>
-        </div>
-
-        <div class="project-card">
-            <h3>AWS Cloud Resume Challenge</h3>
-            <p><b>Tech Stack:</b> AWS, Python, JavaScript</p>
-            <ul>
-                <li>Designed and deployed a fully serverless portfolio website using AWS S3 for hosting and CloudFront for content delivery.</li>
-                <li>Implemented a visitor counter using AWS Lambda, DynamoDB, and API Gateway to track and store website visits.</li>
-                <li>Automated infrastructure deployment with AWS CloudFormation and utilized GitHub Actions for CI/CD integration.</li>
-                <li>Utilized AWS Route 53 for domain management and SSL/TLS certificate provisioning via AWS Certificate Manager.</li>
-            </ul>
-            
-        </div>
+    <section>
+      <h2>Diagram</h2>
+      <p>If available, the architecture diagram is shown below:</p>
+      <img class="arch" src="CRC_flowsheer.jpg" alt="Cloud Resume Challenge architecture diagram" />
     </section>
 
-    <section class="achievements">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><b>Languages:</b> Python, Java, Scala, C/C++, SQL, HTML, CSS, JavaScript</li>
-            <li><b>Frameworks:</b> ReactJS, JUnit, Pytest, Flask</li>
-            <li><b>Developer Tools:</b> Docker, Git, Postman, REST API, RESTful API, Jira, Chrome Dev Tools, AWS Cloud, Confluence, Tesseract, MongoDB</li>
-            <li><b>Libraries:</b> pandas, NumPy, Pytest, Playwright, Selenium</li>
-        </ul>
-    </section>    
-
-
-    <script src="index.js"></script>
-
+    <footer style="margin-top:2rem;color:#666;">
+      <p>Repository: <a href="https://github.com/aaronke16/CRC" target="_blank" rel="noopener">github.com/aaronke16/CRC</a></p>
+    </footer>
+  </div>
 </body>
 </html>
