@@ -1,4 +1,4 @@
-const counter = document.querySelector(".counter-number");
+const counter = document.querySelector(".view-count");
 const API_URL = "https://oyekn9nrrb.execute-api.us-east-1.amazonaws.com/prod/visitors";
 
 // Increment visitor count (POST)
