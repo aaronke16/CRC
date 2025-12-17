@@ -1,8 +1,19 @@
 const counter = document.querySelector(".counter-number");
-async function updateCounter() {
-    let response = await fetch("https://bpvvpt5kae47gjucw4f2dfzabu0tdonk.lambda-url.us-east-1.on.aws/");
-    let data = await response.json();
-    counter.innerHTML = `${data}`;
-    }
+const API_URL = "https://oyekn9nrrb.execute-api.us-east-1.amazonaws.com/prod/visitors";
 
-updateCounter();
+// Increment visitor count (POST)
+async function incrementVisitor() {
+    const response = await fetch(API_URL, { method: "POST" });
+    const data = await response.json();
+    counter.innerHTML = data.views; // Access the "views" property
+}
+
+// Get current visitor count without incrementing (GET)
+async function getVisitorCount() {
+    const response = await fetch(API_URL, { method: "GET" });
+    const data = await response.json();
+    counter.innerHTML = data.views; // Access the "views" property
+}
+
+// Example: increment on page load
+window.addEventListener("load", incrementVisitor);
