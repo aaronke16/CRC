@@ -82,5 +82,3 @@ resource "aws_lambda_function_url" "url1" {
     max_age           = 86400
   }
 }
-
-
